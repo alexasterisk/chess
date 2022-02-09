@@ -1,3 +1,6 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+
 local Matter = require(ReplicatedStorage.Common.Matter)
 local World = Matter.World.new()
 local GameLoop = Matter.Loop.new(World)
@@ -10,8 +13,6 @@ for _, child in ipairs(script.systems:GetChildren()) do
 end
 
 GameLoop:scheduleSystems(systems)
-
-local RunService = game:GetService("RunService")
 
 GameLoop:begin({
   default = RunService.Heartbeat
